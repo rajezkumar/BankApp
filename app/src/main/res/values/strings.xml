@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">BankApp</string>
+    <string name="app_name">Bankapp</string>
+    <string name="available">Available</string>
+    <string name="balance">Balance</string>
+    <string name="pending">Pending</string>
+    <string name="bsb">BSB</string>
+    <string name="account_number">Account Number</string>
+    <string name="dollar_val">\$%1$s</string>
+    <string name="days_ago">%1$s days ago</string>
+    <string name="dollar_val_negative">-$%.2f</string>
+    <string name="dollar_val_positive">+$%.2f</string>
+    <string name="go_back_arrow">go back arrow</string>
+    <string name="account_details">Account Details</string>
 </resources>
