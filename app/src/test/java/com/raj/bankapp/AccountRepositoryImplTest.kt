@@ -7,11 +7,13 @@ import com.raj.bankapp.data.model.Atm
 import com.raj.bankapp.data.model.Location
 import com.raj.bankapp.data.model.Transaction
 import com.raj.bankapp.data.repository.AccountRespositoryImpl
+import com.raj.bankapp.domain.MainAccountListItemMapper
 import com.raj.bankapp.domain.model.AccountName
 import com.raj.bankapp.domain.model.ItemType
 import com.raj.bankapp.domain.model.MainAccountListItem
 import com.raj.bankapp.util.Resource
 import io.mockk.coEvery
+import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
@@ -24,6 +26,9 @@ import retrofit2.Response
 class AccountRepositoryImplTest {
 
     private lateinit var accountRespositoryImpl: AccountRespositoryImpl
+
+    @MockK
+    private lateinit var mainAccountListItemMapper: MainAccountListItemMapper
 
     @Before
     fun setUp() {
@@ -56,7 +61,7 @@ class AccountRepositoryImplTest {
                 )
             )
         )
-        accountRespositoryImpl = AccountRespositoryImpl(accountApi)
+        accountRespositoryImpl = AccountRespositoryImpl(accountApi, mainAccountListItemMapper)
     }
 
     @Test

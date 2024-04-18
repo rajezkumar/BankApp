@@ -3,6 +3,7 @@ package com.raj.bankapp.di
 import android.content.Context
 import com.raj.bankapp.data.api.AccountApi
 import com.raj.bankapp.data.repository.AccountRespositoryImpl
+import com.raj.bankapp.domain.MainAccountListItemMapper
 import com.raj.bankapp.domain.repository.AccountRepository
 import dagger.Module
 import dagger.Provides
@@ -37,7 +38,14 @@ class AppModule() {
 
     @Provides
     @Singleton
-    fun provideAccountRespository(accountApi: AccountApi): AccountRepository =
-        AccountRespositoryImpl(accountApi)
+    fun provideAccountRespository(
+        accountApi: AccountApi,
+        mainAccountListItemMapper: MainAccountListItemMapper
+    ): AccountRepository =
+        AccountRespositoryImpl(accountApi, mainAccountListItemMapper)
+
+    @Provides
+    @Singleton
+    fun provideMainAccountListItemMapper(): MainAccountListItemMapper = MainAccountListItemMapper()
 
 }
